@@ -2,17 +2,17 @@
  * @Author: yxd
  * @Date: 2023-05-18 17:51:26
  * @LastEditors: ad ad@zhun-shi.com
- * @LastEditTime: 2023-05-19 09:11:38
+ * @LastEditTime: 2023-05-19 09:16:21
  * @Description: 
  */
 import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
-import { wrapperEnv , createProxy } from './build/utils'
+import { wrapperEnv, createProxy } from './build/utils'
 import { createVitePlugins } from './build/plugin'
 
 export default defineConfig(({ command, mode }) => {
+  const isBuild = command === 'build'
   const env = loadEnv(mode, process.cwd())
   const viteEnv = wrapperEnv(env)
 
@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
   const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
 
   return {
-    plugins: [vue()],
+    plugins: createVitePlugins(viteEnv, isBuild),
     base: VITE_PUBLIC_PATH || '/',
     resolve: {
       //设置别名

@@ -12,9 +12,15 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@unocss/preset-attributify": "^0.51.13",
+    "@unocss/preset-icons": "^0.51.13",
+    "@unocss/preset-uno": "^0.51.13",
     "@vitejs/plugin-vue": "^4.1.0",
+    "rollup-plugin-visualizer": "^5.9.0",
     "sass": "^1.62.1",
+    "unocss": "^0.51.13",
     "vite": "^4.3.2",
+    "vite-plugin-html": "^3.2.0",
     "vite-plugin-vue-setup-extend": "^0.4.0"
   }
 }

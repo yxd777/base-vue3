@@ -1,4 +1,11 @@
-<script setup>
+<!--
+ * @Author: yxd
+ * @Date: 2023-05-18 17:51:26
+ * @LastEditors: ad ad@zhun-shi.com
+ * @LastEditTime: 2023-05-19 09:18:19
+ * @Description: 
+-->
+<script setup name="MyComp">
 import { ref } from 'vue'
 
 defineProps({
