@@ -1,3 +1,10 @@
+<!--
+ * @Author: yxd
+ * @Date: 2023-05-18 17:51:26
+ * @LastEditors: ad ad@zhun-shi.com
+ * @LastEditTime: 2023-05-18 18:16:16
+ * @Description: 
+-->
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 </script>
@@ -14,17 +21,9 @@ import HelloWorld from './components/HelloWorld.vue'
   <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style lang="scss">
+#app {
+  background-color: $primaryColor;
 }
 </style>
+
