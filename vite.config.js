@@ -3,7 +3,7 @@
  * @Date: 2023-05-18 17:51:26
  * @LastEditors: ad ad@zhun-shi.com
  * @LastEditTime: 2023-05-19 09:16:21
- * @Description: 
+ * @Description:
  */
 import { defineConfig, loadEnv } from 'vite'
 import path from 'path'
@@ -25,8 +25,8 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       //设置别名
       alias: {
-        '@': path.resolve(__dirname, "src")
-      }
+        '@': path.resolve(__dirname, 'src'),
+      },
     },
     css: {
       preprocessorOptions: {
@@ -37,10 +37,9 @@ export default defineConfig(({ command, mode }) => {
       },
     },
     server: {
-      host: '0.0.0.0',  // 默认为'127.0.0.1'，如果将此设置为 `0.0.0.0` 或者 `true` 将监听所有地址，包括局域网和公网地址
-      port: VITE_PORT,  // 端口
+      host: '0.0.0.0', // 默认为'127.0.0.1'，如果将此设置为 `0.0.0.0` 或者 `true` 将监听所有地址，包括局域网和公网地址
+      port: VITE_PORT, // 端口
       proxy: createProxy(VITE_PROXY), // 代理
-    }
-
+    },
   }
 })

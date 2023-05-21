@@ -41,8 +41,6 @@ export function wrapperEnv(envOptions) {
   return rst
 }
 
-
-
 /**
  * @description: 配置devserver 用于vite.config.js
  * @param {*} list
