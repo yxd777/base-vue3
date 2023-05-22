@@ -2,7 +2,7 @@
  * @Author: yxd
  * @Date: 2023-05-18 17:51:26
  * @LastEditors: ad ad@zhun-shi.com
- * @LastEditTime: 2023-05-19 09:16:21
+ * @LastEditTime: 2023-05-21 21:23:26
  * @Description:
  */
 import { defineConfig, loadEnv } from 'vite'
@@ -13,7 +13,7 @@ import { createVitePlugins } from './build/plugin'
 
 export default defineConfig(({ command, mode }) => {
   const isBuild = command === 'build'
-  const env = loadEnv(mode, process.cwd())
+  const env = loadEnv(mode, process.cwd()) // 得到env的配置文件，一个对象Record<string, string>、、
   const viteEnv = wrapperEnv(env)
 
   // 这样就可以拿到定义好的环境变量了，也可以使用process.env.xxx这种方式进行访问

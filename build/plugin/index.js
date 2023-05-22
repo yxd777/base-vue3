@@ -2,15 +2,12 @@
  * @Author: yxd
  * @Date: 2023-05-21 13:00:03
  * @LastEditors: ad ad@zhun-shi.com
- * @LastEditTime: 2023-05-21 13:10:37
+ * @LastEditTime: 2023-05-21 21:35:11
  * @Description: 
  */
 import vue from '@vitejs/plugin-vue'
 
-/**
- * * 扩展setup插件，支持在script标签中使用name属性
- * usage: <script setup name="MyComp"></script>
- */
+//扩展setup插件，支持在script标签中使用name属性  usage: <script setup name="MyComp"></script> 
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 // rollup打包分析插件
 import { visualizer } from 'rollup-plugin-visualizer'
@@ -22,6 +19,8 @@ import { unocss } from './unocss'
  */
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+
+import { configMockPlugin } from './mock'
 
 export function createVitePlugins(viteEnv, isBuild) {
   const plugins = [
@@ -42,6 +41,10 @@ export function createVitePlugins(viteEnv, isBuild) {
         brotliSize: true,
       })
     )
+  }
+  
+  if (viteEnv?.VITE_APP_USE_MOCK) {
+    plugins.push(configMockPlugin(isBuild))
   }
 
   return plugins

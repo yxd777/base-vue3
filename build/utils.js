@@ -2,7 +2,7 @@
  * @Author: yxd
  * @Date: 2023-05-18 18:00:02
  * @LastEditors: ad ad@zhun-shi.com
- * @LastEditTime: 2023-05-18 18:17:41
+ * @LastEditTime: 2023-05-22 11:07:43
  * @Description: 
  * 
  * ①在vite项目中，以VITE_ 为前缀的环境变量可以通过 import.meta.env.xxx的方式访问，
@@ -12,7 +12,13 @@
  
  */
 const httpsReg = /^https:\/\//
-export function wrapperEnv(envOptions) {
+/**
+ * @description: 因为vite的loadEnv方法返回是一个Record<string, string>，要改成对应的数据结构
+ *              同时设置了process.env
+ * @param {*} envOptions loadEnv的返回值
+ * @return {*} 
+ */
+export function wrapperEnv(envOptions) { 
   if (!envOptions) return {}
   const rst = {}
 
@@ -26,7 +32,7 @@ export function wrapperEnv(envOptions) {
     }
     if (key === 'VITE_PROXY' && val) {
       try {
-        val = JSON.parse(val.replace(/'/g, '"'))
+        val = JSON.parse(val.replace(/'/g, '"')) // [["/api","http://localhost:8080"]] 
       } catch (error) {
         val = ''
       }
@@ -37,7 +43,7 @@ export function wrapperEnv(envOptions) {
     } else if (typeof key === 'object') {
       process.env[key] = JSON.stringify(val)
     }
-  }
+  }  
   return rst
 }
 
